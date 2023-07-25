@@ -1,0 +1,156 @@
+﻿@model UCABPagaloTodoWeb.Models.Request.LoginRequest; 
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - UCABPagaloTodo</title>
+
+    <link rel="shortcut icon" href="~/images/ShortCutIconPagaloTodo.png">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Montserrat:wght@300;500&family=Zilla+Slab:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+</head>
+<!-- Mensaje Fallido -->
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        // Abre un cuadro de diálogo emergente con el mensaje de error
+        alert('@TempData["ErrorMessage"]');
+    </script>
+}
+<!-- Mensaje Exitoso -->
+@if (TempData["MensajeExito"] != null)
+{
+    <div id="mensajeExito" class="alert alert-success">
+        @TempData["MensajeExito"]
+    </div>
+}
+<body>
+    <div class="container">
+        <div class="signin-signup">
+            <form class="sign-in-form" asp-action="Login" asp-controller="Login" method="post">
+                <img src="~/images/Logo PagaloTodo.svg" alt="">
+                <h2 class="title">Iniciar Sesión</h2>
+                <div class="input-field">
+                    <i class="fas fa-user" id="ini"></i>
+                    <input type="text" name="Username" placeholder="Username" required>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock" id="ini"></i>
+                    <input type="password" name="Clave" placeholder="Contraseña" required>
+                </div>
+                <input type="submit" value="Login" class="btn">
+
+                <p class="text">¿Olvidaste tu contraseña? <a href="#cambiarEstServicioModal" data-toggle="modal">Haz click aqui para recuperarla</a></p>
+                <p class="account-text">¿No tienes una cuenta? <a href="#" id="sign-up-btn2">Regístrate ahora!</a></p>
+            </form>
+            <form class="sign-up-form" asp-action="Registro" asp-controller="Consumidor" method="post">
+                <img src="~/images/Logo PagaloTodo.svg" alt="">
+                <h2 class="title">Registrarse</h2>
+                <div class="input-field">
+                    <input type="text" placeholder="Username" asp-for="Username">
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Email" asp-for="Correo">
+                </div>
+                <div class="input-field">
+                    <input type="password" placeholder="Contraseña"  asp-for="Clave">
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Nombre" asp-for="Nombre">
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Apellido" asp-for="Apellido">
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Cédula de Identidad" asp-for="DocIdentidad">
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Dirección" asp-for="Direccion">
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="TipoVj" asp-for="TipoVj">
+                </div>
+
+                <input type="submit" value="Crear cuenta" class="btn">
+                <p class="account-text">¿Ya tienes una cuenta? <a href="#" id="sign-in-btn2">Inicia sesión</a></p>
+            </form>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión y empieza a disfutar de las novedades que PagaloTodoUCAB tiene para ti!</p>
+                    <button class="btn" id="sign-in-btn">Iniciar sesión</button>
+                </div>
+                <img src="~/images/Mobile login-bro.svg" alt="" class="image">
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>¿Primera vez con nosotros?</h3>
+                    <p>Adéntrate en el mundo de los pagos en línea con PagaloTodoUCAB. Registra, consulta y administra tus pagos desde cualquier parte del mundo y a un solo clic</p>
+                    <button class="btn" id="sign-up-btn">Regístrate</button>
+                </div>
+                <img src="~/images/Mobile login-pana.svg" alt="" class="image">
+            </div>
+        </div>
+    </div>
+
+     <!-- Delete Modal HTML -->
+    <div id="cambiarEstServicioModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="RecuperarContra" asp-controller="RecuperarClave" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cambiar Clave</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" id="inputNombre" class="form-control" asp-for="Nombre" value=""  required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-danger" value="Recuperar Clave">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                    </div>
+                    <input type="hidden" name="_method" value="PATCH" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Obtener el elemento del mensaje
+        var mensajeExito = document.getElementById("mensajeExito");
+
+        // Ocultar el mensaje después de 3 segundos
+        setTimeout(function () {
+            mensajeExito.style.display = "none";
+        }, 3000); // 3000 milisegundos = 3 segundos
+    </script>
+    <script src="~/js/login.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UCABPagaloTodo</title>
+
+    <link rel="shortcut icon" href="~/images/ShortCutIconPagaloTodo.png">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Zilla+Slab:ital,wght@1,600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <a asp-area="" asp-controller="Usuario" asp-action="Inicio">
+                <img src="~/images/Logo PagaloTodoBlanco.svg" class="logo">
+            </a>
+            <ul>
+                <li><a asp-area="" asp-controller="Servicio" asp-action="ServicioAdmin">Servicios</a></li>
+                <li class="dropdown"><a href="#" class="dropbtn">Pagos</a>
+                    <div class="dropdown-content">
+                        <a asp-area="" asp-controller="Pago" asp-action="PagoAdmin">Pagos</a>
+                        <a asp-area="" asp-controller="Deudas" asp-action="DeudaAdmin">Deudas</a>
+                    </div>
+                </li>
+                <li class="dropdown"><a href="#" class="dropbtn">Usuarios</a>
+                    <div class="dropdown-content">
+                        <a asp-area="" asp-controller="Consumidor" asp-action="Consumidores">Consumidores</a>
+                        <a asp-area="" asp-controller="Prestador" asp-action="Prestadores">Prestadores</a>
+                    </div>
+                </li>
+                <li><a asp-area="" asp-controller="Administrador" asp-action="CuentaAdmin">Cuenta</a></li>
+                <li><a asp-area="" asp-controller="Reporte" asp-action="Reporte">Reporte</a></li>
+            </ul>
+            <a asp-area="" asp-controller="Login" asp-action="Logout" class="btn_close">Cerrar sesión</a>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

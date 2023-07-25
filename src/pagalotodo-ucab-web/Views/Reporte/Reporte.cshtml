@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Reporte";
+    Layout = "_LayoutAdmin";
+}
+<head>
+    <link rel="stylesheet" href="~/css/Reporte.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Zilla+Slab:ital,wght@1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        
+    </style>
+</head>
+<body class="menu_fondo">
+    <script>
+        // Agrega el código JavaScript aquí
+        var reporteBtns = document.querySelectorAll('.reporte-btn');
+        reporteBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                console.log('Botón Reporte clickeado');
+                console.log('URL del botón:', btn.dataset.url);
+                var url = btn.dataset.url;
+                window.open(url, '_blank');
+            });
+        });
+    </script>
+</body>
+<!-- Mensaje Fallido -->
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <script>
+        // Abre un cuadro de diálogo emergente con el mensaje de error
+        alert('@ViewBag.ErrorMessage');
+    </script>
+}
+<!-- Mensaje Exitoso -->
+@if (!string.IsNullOrEmpty(ViewBag.MensajeExito))
+{
+    <div class="alert alert-success">
+        @ViewBag.MensajeExito
+    </div>
+}
+
+
+<div class="content">
+    <div class="reportes">
+        <div class="titulo">
+            <h2>Reportes</h2>
+        </div>
+        <div class="botonesRepo">
+            <a href="http://camila/ReportServer/Pages/ReportViewer.aspx?%2fReportes%2fReport1&rs:Command=Render" target="_blank" class="boton">Reporte 1</a>
+            <a href="http://camila/ReportServer/Pages/ReportViewer.aspx?%2fReportes%2fReport2&rs:Command=Render" target="_blank" class="boton">Reporte 2</a>
+            <a href="http://camila/ReportServer/Pages/ReportViewer.aspx?%2fReportes%2fReport3&rs:Command=Render" target="_blank" class="boton">Reporte 3</a>
+            <a href="http://camila/ReportServer/Pages/ReportViewer.aspx?%2fReportes%2fReport4&rs:Command=Render" target="_blank" class="boton">Reporte 4</a>
+            <a href="http://camila/ReportServer/Pages/ReportViewer.aspx?%2fReportes%2fReport5&rs:Command=Render" target="_blank" class="boton">Reporte 5</a>
+
+        </div>
+    </div>
+</div>
+

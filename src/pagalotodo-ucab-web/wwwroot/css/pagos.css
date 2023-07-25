@@ -1,0 +1,206 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+.menu_fondo {
+    height: 70vh;
+    width: 100%;
+    background-image: url(../images/ucab-fondo_oscuro.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 22px;
+    background-color: rgb(43, 89, 195);
+}
+
+.logo {
+    position: relative;
+    width: 28vh;
+    height: auto;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 3px 12px;
+}
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        nav ul li a:hover {
+            background-color: rgb(97, 232, 225);
+            color: #fff;
+            border: 4px solid transparent;
+            padding: 3px 15px;
+            border-radius: 30px;
+            transition: .4s;
+        }
+
+.acciones {
+    display: flex;
+    justify-content: center;
+    
+}
+
+    .acciones .btn-activar-desactivar {
+        background-color: rgb(255, 167, 15);
+        color: white;
+        
+        margin-right: 3px;
+    }
+
+.btn_close {
+    background-color: rgb(255, 167, 15);
+    color: white;
+    text-decoration: none;
+    border: 2px solid rgb(255, 167, 15);
+    font-weight: 400;
+    padding: 3px 3.5%;
+    border-radius: 30px;
+    transition: transform .4s;
+    white-space: nowrap;
+}
+
+    .btn_close:hover {
+        transform: scale(1.1);
+    }
+
+.content {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20vh;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(45, 93, 204, 0.842) !important;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.1);
+    z-index: 1;
+    border-radius: 20px;
+}
+
+    .dropdown-content a {
+        color: rgb(255, 255, 255);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-weight: 100;
+    }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#title {
+    color: rgb(255, 167, 15);
+}
+
+.textoInstruccion {
+    color: rgb(255, 167, 15);
+    float: left;
+}
+
+.fechas {
+    width: 22vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buscar {
+    
+    color: white;
+    text-decoration: none;   
+    font-weight: 400;
+    transition: transform .4s;
+    white-space: nowrap;
+    margin: 40px;
+    margin-bottom: 3px;
+}
+
+    .buscar:hover {
+        color: #fff;
+        transform: scale(1.1);
+    }
+
+#textoFecha {
+    background-color: rgb(255, 167, 15);
+    margin: 5px;
+    margin-top: 20px;
+}
+
+#tablaPagos {
+    overflow: scroll;
+}
+
+.cargarArchivoConci {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#archivoInput {
+    display: flex;
+    align-items: center;
+}
+
+
+.modal-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 167, 15);
+}
+
+.modal-header .modal-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 167, 15);
+}
+
+
+.modal-header {
+    background-image: url(../images/ucab-fondo_oscuro.webp);
+    background-size: cover;
+}
+
+.atributosModalServicioParti {
+    font-weight: bold;
+    color: rgb(43, 89, 195);
+}
+
+.botonAddServicio {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 20vh;
+    display: inline;
+    margin-left: 80%;
+}
