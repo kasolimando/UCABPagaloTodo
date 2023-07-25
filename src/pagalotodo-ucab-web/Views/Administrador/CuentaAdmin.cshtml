@@ -1,0 +1,187 @@
+﻿@model UCABPagaloTodoWeb.Models.Request.AdminsRequest;
+
+@{
+    ViewData["Title"] = "Mi Cuenta";
+    Layout = "_LayoutAdmin";
+}
+<head>
+    <link rel="stylesheet" href="~/css/inicio.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Zilla+Slab:ital,wght@1,600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+<body class="menu_fondo"></body>
+<!-- Mensaje Fallido -->
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        // Abre un cuadro de diálogo emergente con el mensaje de error
+        alert('@TempData["ErrorMessage"]');
+    </script>
+}
+<!-- Mensaje Exitoso -->
+@if (TempData["MensajeExito"] != null)
+{
+    <div id="mensajeExito" class="alert alert-success">
+        @TempData["MensajeExito"]
+    </div>
+}
+<div class="content">
+    <div class="left">
+        <h3 class="frase">¡Bienvenido!</h3>
+        <h4 class="user">@ViewData["Username"]</h4>
+    </div>
+    <div class="eleDerecha">
+        <div class="cuadro_info">
+            <h2 id="titulo">Datos registrados</h2>
+            <div class="datos">
+                <div class="dato1">
+                    <label for="" class="dato">Nombre y Apellido: </label>
+                    <p class="texto">@($"{Model.Nombre} {Model.Apellido}")</p>
+                </div>
+                <div class="dato1">
+                    <label for="" class="dato">Documento de Identidad:</label>
+                    <p class="texto">@($"{Model.TipoVj} {Model.DocIdentidad}")</p>
+                </div>
+                <div class="dato1">
+                    <label for="" class="dato">Correo:</label>
+                    <p class="texto">@Model.Correo</p>
+                </div>
+                <div class="dato1">
+                    <label for="" class="dato">Direccion:</label>
+                    <p class="texto">@Model.Direccion</p>
+                </div>
+            </div>
+        </div>
+        <div class="botonesInfo">
+            <a href="#modalModificarConsu" id="botonUsuario" class="btn btn-info botonModificarConsu" data-toggle="modal"><span>Modificar</span></a>
+            <a href="#modalCambiarClave" id="botonUsuario" class="btn btn-info botonCambioClave" data-toggle="modal"><span>Cambiar clave</span></a>
+            <a href="#modalEliminarConsu" id="botonUsuario" class="btn btn-info botonEliminar" data-toggle="modal"><span>Eliminar cuenta</span></a>
+        </div>
+    </div>
+    <div id="modalModificarConsu" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="ModificarAdmin" asp-controller="Administrador" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modificar cuenta</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" asp-for="Nombre" value=@Model.Nombre required>
+                        </div>
+                        <div class="form-group">
+                            <label>Apellido</label>
+                            <input type="text" class="form-control" asp-for="Apellido" value=@Model.Apellido required>
+                        </div>
+                        <div class="listaDocumento">
+                            <br>
+                            <div class="form-group">
+                                <label for="tipoDoc">Tipo de Documento</label>
+                                <br>
+                                <select id="tipoDoc" asp-for="TipoVj" value=@Model.TipoVj>
+                                    <option value="v">V</option>
+                                    <option value="j">J</option>
+                                    <option value="p">P</option>
+                                    <option value="g">G</option>
+                                    <option value="e">E</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <br>
+                                <label>Documento de identificacion</label>
+                                <input class="form-control" asp-for="DocIdentidad" value=@Model.DocIdentidad required>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Correo</label>
+                            <input class="form-control" asp-for="Correo" value=@Model.Correo required>
+                        </div>
+                        <div class="form-group">
+                            <label>Direccion</label>
+                            <textarea class="form-control" asp-for="Direccion" value=@Model.Direccion required></textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-info" value="Guardar">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" asp-action="CuentaAdmin" asp-controller="Administrador">
+                    </div>
+                    <input type="hidden" name="_method" value="PUT" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Modal HTML -->
+    <div id="modalCambiarClave" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="CambiarClaveAdmin" asp-controller="Administrador" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cambio de clave</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+
+                    <div id="clavesCambio" class="modal-body">
+                        <br>
+                        <div class="claves">
+                            <label>Clave actual</label>
+                            <input class="form-control" asp-for="Clave" required>
+                        </div>
+                        <div class="claves">
+                            <label>Nueva clave</label>
+                            <input class="form-control" asp-for="Nombre" required>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-info" value="Guardar">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar" asp-action="CuentaAdmin" asp-controller="Administrador">
+                    </div>
+                    <input type="hidden" name="_method" value="PATCH" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Modal HTML -->
+    <div id="modalEliminarConsu" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="DeleteAdmin" asp-controller="Administrador" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Eliminar cuenta</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <br>
+                        <div class="textoEliminar">
+                            <label>¿Desea eliminar su cuenta?</label>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-danger" value="Eliminar">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar" asp-action="CuentaAdmin" asp-controller="Administrador">
+                    </div>
+                    <input type="hidden" name="_method" value="PATCH" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Obtener el elemento del mensaje
+        var mensajeExito = document.getElementById("mensajeExito");
+
+        // Ocultar el mensaje después de 3 segundos
+        setTimeout(function () {
+            mensajeExito.style.display = "none";
+        }, 3000); // 3000 milisegundos = 3 segundos
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+</div>

@@ -1,0 +1,620 @@
+﻿@using Microsoft.AspNetCore.Mvc.ViewFeatures;
+@using UCABPagaloTodoWeb.Models.Response;
+@model UCABPagaloTodoWeb.Models.ModelosServicios;
+
+@{
+    ViewData["Title"] = "Servicios";
+    Layout = "_LayoutAdmin";
+    List<FormatosResponse> formatos = new();
+}
+<head>
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.min.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Zilla+Slab:ital,wght@1,600&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.min.js"></script>
+
+</head>
+<body class="menu_fondo">
+</body>
+<!-- Mensaje Fallido -->
+<!-- Mensaje Fallido -->
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        // Abre un cuadro de diálogo emergente con el mensaje de error
+        alert('@TempData["ErrorMessage"]');
+    </script>
+}
+<!-- Mensaje Exitoso -->
+@if (TempData["MensajeExito"] != null)
+{
+    <div id="mensajeExito" class="alert alert-success">
+        @TempData["MensajeExito"]
+    </div>
+}
+
+    <!-- Popup -->
+    <div id="popup" class="alert alert-success alert-dismissible fade show d-none" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="column">
+        <h2 class="subtitle is-2 has-text-centered has-text-weight-bold" id="tituloServicios">Servicios registrados</h2>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row shadow-lg p-3 mb-5">
+            <div class="col">
+                <table id="tablaServicios" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Nombre</th>
+                            <th class="text-center">Prestador</th>
+                            <th class="text-center">Descripción</th>
+                            <th class="text-center">Estatus</th>
+                            <th class="text-center">Categoria</th>
+                            <th class="text-center">Tipo de pago</th>
+                            <th class="text-center">Acciones</th>
+                            <th class="invisible">formato</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var servicio in Model.ServicioResponse)
+                        {
+                            formatos = new List<FormatosResponse>();
+                            string campos = "";
+                            @if (Model.Formatos.Count() > 0)
+                            {
+                                formatos = Model.Formatos.Where(f => f.Servicio == servicio.Nombre).ToList();
+                                @foreach (var formato in formatos)
+                                {
+                                    campos += formato.Campos + "," + formato.Longitud + "," + formato.Requerido + " ";
+                                }
+                            }
+                            <tr id="@servicio.Nombre">
+                                <td>
+                                    <a href="#" onclick="seleccionarServicio(this)" data-nombre="Nombre">@servicio.Nombre</a>
+                                </td>
+                                <td>@servicio.PrestadorEntityId</td>
+                                <td>@servicio.Descripcion</td>
+                                <td>@servicio.Estatus</td>
+                                <td>@servicio.Categoria</td>
+                                <td>@servicio.TipoPago</td>
+                                <td class="acciones">
+                                    <button onclick="modificarServicio(this)" class="btn btn-editar">Modificar</button>
+                                    <button onclick="activarServicio(this)" class="btn btn-activar-desactivar">Activar/Desactivar</button>
+                                    @if (campos.Count() > 0)
+                                    {
+                                        <button onclick="modificarFormato(this)" class="btn btn-primary botonAddFormato">Modificar Formato</button>
+                                    }
+                                    else
+                                    {
+                                        <button onclick="AddFormato(this)" class="btn btn-primary botonAddFormato">Agregar Formato</button>
+                                    }
+                                <button onclick="Cierre(this)" class="btn btn-activar-desactivar">Cierre</button>
+                                <td class="invisible">@campos</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Modal para CRUD-->
+    <div id="modalServicios" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="AddServicio" asp-controller="Servicio" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Añadir Servicio</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nombre del servicio</label>
+                            <input type="text" class="form-control" asp-for="ServiciosRequest.Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Username del Prestador</label>
+                            <input type="text" class="form-control" asp-for="ServiciosRequest.PrestadorEntityId"  required>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <textarea class="form-control" asp-for="ServiciosRequest.Descripcion" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Categoría</label>
+                            <input class="form-control" asp-for="ServiciosRequest.Categoria" required>
+                        </div>
+                        <br>
+                        <div class="listaOp">
+                            <div class="form-group">
+                                <label for="estatus">Estatus</label>
+                                <select id="estatus" asp-for="ServiciosRequest.Estatus">
+                                    <option value="activo">Activo</option>
+                                    <option value="inactivo">Inactivo</option>
+                                    <option value="proximamente">Proximamente</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipoPago">Tipo de pago</label>
+                                <select id="tipoPago" asp-for="ServiciosRequest.TipoPago">
+                                    <option value="contado">Contado</option>
+                                    <option value="confirmacion">Confirmacion</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-info" value="Crear">
+                        <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cancelar">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Edit Modal HTML -->
+    <div id="editServicioModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="ModificarServicio" asp-controller="Servicio" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modificar servicio</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nombre del servicio</label>
+                            <input type="text" id="inputNombre" class="form-control" asp-for="ServiciosRequest.Nombre" value="" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label>Username del Prestador</label>
+                            <input type="text" id="inputPrestador" class="form-control" asp-for="ServiciosRequest.PrestadorEntityId" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <input class="form-control" id="inputDecripcion" asp-for="ServiciosRequest.Descripcion" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Categoría</label>
+                            <input class="form-control" id="inputCategoria" asp-for="ServiciosRequest.Categoria" value="" required>
+                        </div>
+                        <br>
+                        <div class="listaOp">
+                            <div class="form-group">
+                                <label for="estatus">Estatus</label>
+                                <select id="estatus" asp-for="ServiciosRequest.Estatus">
+                                    <option value="activo">Activo</option>
+                                    <option value="inactivo">Inactivo</option>
+                                    <option value="proximamente">Proximamente</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipoPago">Tipo de pago</label>
+                                <select id="tipoPago" asp-for="ServiciosRequest.TipoPago" value="">
+                                    <option value="contado">Contado</option>
+                                    <option value="confirmacion">Confirmacion</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-info" value="Guardar">
+                    <button type="button" class="btn btn-secondary" id="btnCancelar">Cancelar</button>
+                    </div>
+                    <input type="hidden" name="_method" value="PUT" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Estatus Modal HTML -->
+    <div id="cambiarEstServicioModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="EstatusServicio" asp-controller="Servicio" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cambiar estatus del servicio</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nombre del servicio</label>
+                            <input type="text" id="inputCambioEstatus" class="form-control" asp-for="ServiciosRequest.Nombre" value="" readonly required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="estatus">Estatus</label>
+                            <select id="estatus" asp-for="ServiciosRequest.Estatus">
+                                <option value="activo">Activo</option>
+                                <option value="inactivo">Inactivo</option>
+                                <option value="proximamente">Proximamente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input id="btnEstatusServ" type="submit" class="btn btn-danger" value="Activar/Desactivar">
+                    <button type="button" class="btn btn-secondary" id="btnCancelar1">Cancelar</button>
+                </div>
+                    <input type="hidden" name="_method" value="PATCH" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+     <!-- Cierre Modal HTML -->
+    <div id="cierreModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="CierreContable" asp-controller="Cierre" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cierre Contable</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nombre del servicio</label>
+                            <input type="text" id="inputCierre" class="form-control" asp-for="ServiciosRequest.Nombre" value="" readonly required>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-info" value="Cierre">
+                    <button type="button" class="btn btn-secondary" id="btnCancelar2">Cancelar</button>
+                </div>
+                    <input type="hidden" name="_method" value="PATCH" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="detalleServicioModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <span id="spanDetalleUsername" class='modal-title'></span>
+                </div>
+                <div class="modal-body">
+                    <span class='atributosModalServicioParti'>Prestador:</span> <span id="spanDetallePrestador" class='atributosModalServicioPartiValor'></span>
+                    <br>
+                    <span class='atributosModalServicioParti'>Descripcion:</span>  <span id="spanDetalleDecripcion" class='atributosModalServicioPartiValor'></span>
+                    <br>
+                    <span class='atributosModalServicioParti'>Estatus:</span>  <span id="spanDetalleEstatus" class='atributosModalServicioPartiValor'></span>
+                    <br>
+                    <span class='atributosModalServicioParti'>Categoria:</span>  <span id="spanDetalleCategoria" class='atributosModalServicioPartiValor'></span>
+                    <br>
+                    <span class='atributosModalServicioParti'>Tipo de Pago:</span>  <span id="spanDetalleTipoPago" class='atributosModalServicioPartiValor'></span>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="btnCancelar3">Cancelar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal de Formato -->
+    <div class="modal fade" id="editFormatoModal" tabindex="-1" role="dialog" aria-labelledby="formatoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <form asp-action="EditarFormato" asp-controller="Formato" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="formatoModalLabel">Formato</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="atributos">
+                            <div class="tile">
+                                <input type="hidden" asp-for="Formatos[0].Servicio" id="ServicioMonto" value="" />
+                                <input class="checkbox-input" type="checkbox" asp-for="Formatos[0].Requerido" id="MontoBox">
+                                <label class="checkbox-label" for="Campo1">
+                                    <h6>Monto</h6>
+                                    <input type="hidden" asp-for="Formatos[0].Campos" value="Monto" />
+                                    <input class="longiAtributos" id="Monto" type="number" value="" asp-for="Formatos[0].Longitud" placeholder="Longitud">
+                                </label>
+                            </div>
+                            <div class="tile">
+                                <input type="hidden" asp-for="Formatos[1].Servicio" id="ServicioFecha" value="" />
+                                <input class="checkbox-input" type="checkbox" asp-for="Formatos[1].Requerido" id="FechaBox">
+                                <label class="checkbox-label" for="Campo1">
+                                    <h6>Fecha</h6>
+                                    <input type="hidden" asp-for="Formatos[1].Campos" value="Fecha" />
+                                    <input class="longiAtributos" id="Fecha" type="number" value="" asp-for="Formatos[1].Longitud" placeholder="Longitud">
+                                </label>
+                            </div>
+                            <div class="tile">
+                                <input type="hidden" asp-for="Formatos[2].Servicio" id="ServicioNombre" value="" />
+                                <input class="checkbox-input" type="checkbox"  asp-for="Formatos[2].Requerido" id="NombreBox">
+                                <label class="checkbox-label" for="Campo1">
+                                    <h6>Nombre</h6>
+                                    <input type="hidden" asp-for="Formatos[2].Campos" value="Nombre" />
+                                    <input class="longiAtributos"  id="Nombre"  type="number" value="" asp-for="Formatos[2].Longitud" placeholder="Longitud">
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-info" value="Modificar">
+                    <button type="button" class="btn btn-secondary" id="btnCancelar4">Cancelar</button>
+                </div>
+                    <input type="hidden" name="_method" value="PUT" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Formato ADD -->
+    <div class="modal fade" id="addFormatoModal" tabindex="-1" role="dialog" aria-labelledby="formatoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <form asp-action="AddFormato" asp-controller="Formato" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="formatoModalLabel">Formato</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="atributos">
+                            <div class="tile">
+                                <input type="hidden" asp-for="Formatos[0].Servicio" id="addServicioMonto" value="" />
+                                <input class="checkbox-input" type="checkbox" asp-for="Formatos[0].Requerido" id="addMontoBox">
+                                <label class="checkbox-label" for="Campo1">
+                                    <h6>Monto</h6>
+                                    <input type="hidden" asp-for="Formatos[0].Campos" value="Monto" />
+                                    <input class="longiAtributos" id="addMonto" type="number" value="" asp-for="Formatos[0].Longitud" placeholder="Longitud">
+                                </label>
+                            </div>
+                            <div class="tile">
+                                <input type="hidden" asp-for="Formatos[1].Servicio" id="addServicioFecha" value="" />
+                                <input class="checkbox-input" type="checkbox" asp-for="Formatos[1].Requerido" id="addFechaBox">
+                                <label class="checkbox-label" for="Campo1">
+                                    <h6>Fecha</h6>
+                                    <input type="hidden" asp-for="Formatos[1].Campos" value="Fecha" />
+                                    <input class="longiAtributos" id="addFecha" type="number" value="" asp-for="Formatos[1].Longitud" placeholder="Longitud">
+                                </label>
+                            </div>
+                            <div class="tile">
+                                <input type="hidden" asp-for="Formatos[2].Servicio" id="addServicioNombre" value="" />
+                                <input class="checkbox-input" type="checkbox" asp-for="Formatos[2].Requerido" id="addNombreBox">
+                                <label class="checkbox-label" for="Campo1">
+                                    <h6>Nombre</h6>
+                                    <input type="hidden" asp-for="Formatos[2].Campos" value="Nombre" />
+                                    <input class="longiAtributos" id="addNombre" type="number" value="" asp-for="Formatos[2].Longitud" placeholder="Longitud">
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-info" value="Crear">
+                    <button type="button" class="btn btn-secondary" id="btnCancelar5">Cancelar</button>
+                </div>
+                    <input type="hidden" name="_method" value="PUT" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="crearServ">
+        <a href="#modalServicios" class="btn btn-warning botonAddServicio" data-toggle="modal"><span>Crear nuevo servicio</span></a>
+    </div>
+    <script>
+        function seleccionarServicio(elemento) {
+            // Obtener los valores de los campos de la fila seleccionada
+            var fila = elemento.parentNode.parentNode;
+            var username = fila.querySelector("td:nth-child(1)").textContent;
+            var prestador = fila.querySelector("td:nth-child(2)").textContent;
+            var descripcion = fila.querySelector("td:nth-child(3)").textContent;
+            var estatus = fila.querySelector("td:nth-child(4)").textContent;
+            var categoria = fila.querySelector("td:nth-child(5)").textContent;
+            var tipoPago = fila.querySelector("td:nth-child(6)").textContent;
+
+            var spanUsername = document.querySelector("#spanDetalleUsername");
+            var spanPrestador = document.querySelector("#spanDetallePrestador");
+            var spanDescripcion = document.querySelector("#spanDetalleDecripcion");
+            var spanEstatus = document.querySelector("#spanDetalleEstatus");
+            var spanCategoria = document.querySelector("#spanDetalleCategoria");
+            var spanTipoPago = document.querySelector("#spanDetalleTipoPago");
+
+            spanUsername.innerHTML = username;
+            spanPrestador.innerHTML = prestador;
+            spanDescripcion.innerHTML = descripcion;
+            spanEstatus.innerHTML = estatus;
+            spanCategoria.innerHTML = categoria;
+            spanTipoPago.innerHTML = tipoPago;
+
+            // Mostrar los detalles del prestador seleccionado
+            $("#detalleServicioModal").modal("show");
+        };
+
+        function modificarServicio(elemento) {
+            // Obtener los valores de los campos de la fila seleccionada
+            var fila = elemento.parentNode.parentNode;
+            var nombre = fila.querySelector("td:nth-child(1)").textContent.trim();
+            var prestador = fila.querySelector("td:nth-child(2)").textContent;
+            var descripcion = fila.querySelector("td:nth-child(3)").textContent;
+            var estatus = fila.querySelector("td:nth-child(4)").textContent;
+            var categoria = fila.querySelector("td:nth-child(5)").textContent;
+            var tipoPago = fila.querySelector("td:nth-child(6)").textContent;
+
+            var inputNombre = document.querySelector("#inputNombre");
+            var inputPrestador = document.querySelector("#inputPrestador");
+            var inputDecripcion = document.querySelector("#inputDecripcion");
+            var inputEstatus = document.querySelector("#estatus");
+            var inputCategoria = document.querySelector("#inputCategoria");
+            var tipoPago = document.querySelector("#tipoPago");
+
+            inputNombre.value = nombre;
+            inputPrestador.value = prestador;
+            inputDecripcion.value = descripcion;
+            inputEstatus.value = estatus;
+            inputCategoria.value = categoria;
+            tipoPago.value = tipoPago;
+
+            // Mostrar los detalles del prestador seleccionado
+            $("#editServicioModal").modal("show");
+        };
+
+
+        function activarServicio(elemento) {
+            // Obtener los valores de los campos de la fila seleccionada
+            var fila = elemento.parentNode.parentNode;
+            var nombre = fila.querySelector("td:nth-child(1)").textContent.trim();
+
+            var inputNombre = document.querySelector("#inputCambioEstatus");
+
+            inputNombre.value = nombre;
+
+            // Mostrar los detalles del prestador seleccionado
+            $("#cambiarEstServicioModal").modal("show");
+        };
+
+        function Cierre(elemento) {
+            // Obtener los valores de los campos de la fila seleccionada
+            var fila = elemento.parentNode.parentNode;
+            var nombre = fila.querySelector("td:nth-child(1)").textContent.trim();
+
+            var inputNombre = document.querySelector("#inputCierre");
+
+            inputNombre.value = nombre;
+
+            // Mostrar los detalles del prestador seleccionado
+            $("#cierreModal").modal("show");
+        };
+
+        function modificarFormato(elemento) {
+            limpiarFormulario();
+            var fila = elemento.parentNode.parentNode;
+            var nombre = fila.querySelector("td:nth-child(1)").textContent.trim();
+            var formatoCompleto = fila.querySelector("td:nth-child(8)").textContent;
+            var formatos = formatoCompleto.split(" ");
+
+            for (var i = 0; i < formatos.length-1; i++) {
+                var formatoCampos = formatos[i].split(",");
+                console.log(formatoCampos);
+                var inputLongitud;
+                var inputCheckBox;
+                var inputServicio;
+                if (formatoCampos[0] === "Fecha") {
+                    inputLongitud = document.querySelector("#Fecha");
+                    inputCheckBox = document.querySelector("#FechaBox");
+                    inputServicio = document.querySelector("#ServicioFecha");
+                }
+                if (formatoCampos[0] === "Nombre") {
+                    inputLongitud = document.querySelector("#Nombre");
+                    inputCheckBox = document.querySelector("#NombreBox");
+                    inputServicio = document.querySelector("#ServicioNombre");
+                }
+                if (formatoCampos[0] === "Monto") {
+                    inputLongitud = document.querySelector("#Monto");
+                    inputCheckBox = document.querySelector("#MontoBox");
+                    inputServicio = document.querySelector("#ServicioMonto");
+                }
+                if(formatoCampos[2] === "True"){
+                    console.log("entre");
+                    inputLongitud.value = parseInt(formatoCampos[1], 10);
+                    inputCheckBox.checked = true;
+                    inputServicio.value = nombre;
+                }else{
+                    console.log("entre");
+                    inputLongitud.value = parseInt(formatoCampos[1], 0);
+                    inputCheckBox.checked = false;
+                    inputServicio.value = nombre;
+                }
+            }
+            $("#editFormatoModal").modal("show");
+        };
+
+        function limpiarFormulario() {
+            document.querySelector("#Monto").value = "";
+            document.querySelector("#MontoBox").checked = false;
+            document.querySelector("#ServicioMonto").value = "";
+
+            document.querySelector("#Fecha").value = "";
+            document.querySelector("#FechaBox").checked = false;
+            document.querySelector("#ServicioFecha").value = "";
+
+            document.querySelector("#Nombre").value = "";
+            document.querySelector("#NombreBox").checked = false;
+            document.querySelector("#ServicioNombre").value = "";
+        }
+
+        function AddFormato(elemento) {
+            var fila = elemento.parentNode.parentNode;
+            var nombre = fila.querySelector("td:nth-child(1)").textContent.trim();
+            document.querySelector("#addMonto").value = 0;
+            document.querySelector("#addMontoBox").checked = false;
+            document.querySelector("#addServicioMonto").value = nombre;
+
+            document.querySelector("#addFecha").value = "";
+            document.querySelector("#addFechaBox").checked = false;
+            document.querySelector("#addServicioFecha").value = nombre;
+
+            document.querySelector("#addNombre").value = "";
+            document.querySelector("#addNombreBox").checked = false;
+            document.querySelector("#addServicioNombre").value = nombre;
+
+            $("#addFormatoModal").modal("show");
+        }
+        // Obtener el elemento del mensaje
+        var mensajeExito = document.getElementById("mensajeExito");
+
+        // Ocultar el mensaje después de 3 segundos
+        setTimeout(function () {
+            mensajeExito.style.display = "none";
+        }, 3000); // 3000 milisegundos = 3 segundos
+
+    // Agrega un controlador de eventos de clic al botón "Cancelar"
+    document.getElementById("btnCancelar").addEventListener("click", function () {
+        // Cierra el cuadro de diálogo modal
+        $("#editServicioModal").modal("hide");
+    });
+
+    // Agrega un controlador de eventos de clic al botón "Cancelar"
+    document.getElementById("btnCancelar1").addEventListener("click", function () {
+        // Cierra el cuadro de diálogo modal
+        $("#cambiarEstServicioModal").modal("hide");
+    });
+    // Agrega un controlador de eventos de clic al botón "Cancelar"
+    document.getElementById("btnCancelar2").addEventListener("click", function () {
+        // Cierra el cuadro de diálogo modal
+        $("#cierreModal").modal("hide");
+    });
+    // Agrega un controlador de eventos de clic al botón "Cancelar"
+    document.getElementById("btnCancelar3").addEventListener("click", function () {
+        // Cierra el cuadro de diálogo modal
+        $("#detalleServicioModal").modal("hide");
+    });
+    // Agrega un controlador de eventos de clic al botón "Cancelar"
+    document.getElementById("btnCancelar4").addEventListener("click", function () {
+        // Cierra el cuadro de diálogo modal
+        $("#editFormatoModal").modal("hide");
+    });
+    // Agrega un controlador de eventos de clic al botón "Cancelar"
+    document.getElementById("btnCancelar5").addEventListener("click", function () {
+        // Cierra el cuadro de diálogo modal
+        $("#addFormatoModal").modal("hide");
+    });
+    </script>
+
+

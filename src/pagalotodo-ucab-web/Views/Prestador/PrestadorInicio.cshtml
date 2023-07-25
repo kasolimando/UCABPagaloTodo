@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Prestador";
+    Layout = "_LayoutPrestador";
+}
+<head>
+    <link rel="stylesheet" href="~/css/inicio.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="menu_fondo"></body>
+<!-- Mensaje Fallido -->
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        // Abre un cuadro de diálogo emergente con el mensaje de error
+        alert('@TempData["ErrorMessage"]');
+    </script>
+}
+<!-- Mensaje Exitoso -->
+@if (TempData["MensajeExito"] != null)
+{
+    <div id="mensajeExito" class="alert alert-success">
+        @TempData["MensajeExito"]
+    </div>
+}
+<div class="content">
+    <div class="left">
+        <h3 class="frase">¡Bienvenido!</h3>
+        <h4 class="user">@ViewData["Username"]</h4>
+    </div>
+    <div class="right">
+        <p>
+            No te pierdas las últimas novedades que PágaloTodoUCAB tiene para ti!
+            Consulta y accede al pago de tus servicios desde las opciones visibles en la
+            parte superior.
+        </p>
+    </div>
+</div>
+<script>
+    // Obtener el elemento del mensaje
+    var mensajeExito = document.getElementById("mensajeExito");
+
+    // Ocultar el mensaje después de 3 segundos
+    setTimeout(function () {
+        mensajeExito.style.display = "none";
+    }, 3000); // 3000 milisegundos = 3 segundos
+</script>

@@ -1,0 +1,108 @@
+﻿@model UCABPagaloTodoWeb.Models.ModelosServiciosConsu;
+
+@{
+    ViewData["Title"] = "Servicios";
+    Layout = "_LayoutConsumidor";
+}
+<head>
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+     <link rel="stylesheet" href="~/css/serviciosConsu.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Zilla+Slab:ital,wght@1,600&display=swap" rel="stylesheet">
+</head>
+<body class="menu_fondo"></body>
+<!-- Mensaje Fallido -->
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        // Abre un cuadro de diálogo emergente con el mensaje de error
+        alert('@TempData["ErrorMessage"]');
+    </script>
+}
+<!-- Mensaje Exitoso -->
+@if (TempData["MensajeExito"] != null)
+{
+    <div id="mensajeExito" class="alert alert-success">
+        @TempData["MensajeExito"]
+    </div>
+}
+
+
+    <div class="mostrador" id="mostrador">
+        @foreach (var servicio in Model.ServicioResponse)
+        {
+            <div class="item" onclick="cargar(this,'@servicio.Nombre')">
+                <div class="contenedor-info">
+                    <p class="nombre">@servicio.Nombre</p>
+                    @if (servicio.TipoPago == "confirmacion")
+                    {
+                        var deuda = Model.Deudas.Find(d => d.Servicio == servicio.Nombre);
+                        if (deuda is not null && deuda.Estatus.Equals("Activo"))
+                        {
+                            <span class="monto">@deuda.Monto $</span>
+                        }
+                        else
+                        {
+                            <span class="monto">0 $</span>
+                        }
+                    }
+                    else
+                    {
+                        <span class="monto"> $</span>
+                    }
+                    <p class="descripcion">@servicio.Descripcion</p>
+                    <p class="tipo">@servicio.TipoPago</p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="seleccion" id="seleccion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <form asp-action="RealizarPago" asp-controller="Pago" method="post">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="servicio">Servicio</h5>
+                    </div>
+                    <div class="modal-body d-flex flex-row">
+                        <!-- Aquí se mostrará la información detallada del servicio -->
+                        <div>
+                            <p id="descripcionModal">Descrip</p>
+                            <span class="precio" id="precioModal"></span>
+                        </div>
+
+                        <div class="ml-auto">
+                            <div class="contenedor-pagar">
+                                <div class="form-group">
+                                    <input type="hidden" name="ServicioSeleccionado" asp-for="ServicioSeleccionado" id="servicioSeleccionado" value="">
+                                    <input type="number" step="1" class="form-control" asp-for="Pago.Monto" name="Pago.Monto" id="Pago.Monto" placeholder="Monto a pagar" value="" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                         <input type="submit" class="btn btn-primary" value="Pagar">
+                        <input type="button" class="btn btn-default" onclick="cerrar()" data-dismiss="modal" value="Cancel" asp-action="ServicioConsu" asp-controller="Servicio">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+<script>
+    // Obtener el elemento del mensaje
+    var mensajeExito = document.getElementById("mensajeExito");
+
+    // Ocultar el mensaje después de 3 segundos
+    setTimeout(function () {
+        mensajeExito.style.display = "none";
+    }, 3000); // 3000 milisegundos = 3 segundos
+</script>
+    <script src="~/js/serviciosConsum.js"></script>
+

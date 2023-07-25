@@ -1,0 +1,1023 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UCABPagaloTodoMS.Infrastructure.Services.Firebase.Firebase" Collapsed="true">
+    <Position X="4" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Infrastructure.Services.Hotmail.EnviarCorreoClave" Collapsed="true">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Infrastructure.Services.Hotmail.EnviarCorreoConciliacion" Collapsed="true">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Infrastructure.Services.RabbitProducer.RabbitProducer" Collapsed="true">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Infrastructure.Services.RabbitProducer.RabbitProducerConciliacion" Collapsed="true">
+    <Position X="8" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.Implementation.AdminCambiarClaveValidation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\Implementation\AdminCambiarClaveValidation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.Implementation.AdminStatusUserValidation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\Implementation\AdminStatusUserValidation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.Implementation.ConsumidorCambiarClaveValidation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\Implementation\ConsumidorCambiarClaveValidation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.Implementation.ConsumidorStatusUserValidation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\Implementation\ConsumidorStatusUserValidation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.Implementation.PrestadorCambiarClaveValidation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\Implementation\PrestadorCambiarClaveValidation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.Implementation.PrestadorStatusUserValidation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\Implementation\PrestadorStatusUserValidation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.AddUserValidation" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\AddUserValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.AdminValidation" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\AdminValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.AuthenticationValidation" Collapsed="true">
+    <Position X="28" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>BusinessValidation\AuthenticationValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.BaseValidation" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>BusinessValidation\BaseValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.CierreValidation" Collapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\CierreValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.ConciliacionValidation" Collapsed="true">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAACBAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\ConciliacionValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.ConsumidorValidation" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\ConsumidorValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.DeudasValidation" Collapsed="true">
+    <Position X="19.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>BusinessValidation\DeudasValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.FormatoValidation" Collapsed="true">
+    <Position X="28" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQEIAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\FormatoValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.LoginValidation" Collapsed="true">
+    <Position X="28" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEABCAgAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAQ=</HashCode>
+      <FileName>BusinessValidation\LoginValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.PagoValidation" Collapsed="true">
+    <Position X="17.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABIAAAAAAAAAAAAAAoAAAAAAAAAABAA=</HashCode>
+      <FileName>BusinessValidation\PagoValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.PrestadorValidation" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAKAAAAQABAAAAQAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\PrestadorValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.RecuperarClaveValidation" Collapsed="true">
+    <Position X="14" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABCAgAAAAAAAAAAAAAAAAAAAAAAAAAEAACAAAAAAQ=</HashCode>
+      <FileName>BusinessValidation\RecuperarClaveValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.ServicioValidation" Collapsed="true">
+    <Position X="22.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAEAAAQAAACQCAAAAIAgAAAAABAAEA=</HashCode>
+      <FileName>BusinessValidation\ServicioValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.BusinessValidation.UpdateUserValidation" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAEAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>BusinessValidation\UpdateUserValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.AgregarConsumidorCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\AgregarConsumidorCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.AgregarDeudaCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\AgregarDeudaCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.AgregarFormatoCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\AgregarFormatoCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.AgregarPagoCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\AgregarPagoCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.AgregarPrestadorCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\AgregarPrestadorCommand .cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.AgregarServicioCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\AgregarServicioCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.CambiarDeudaCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAQAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\CambiarDeudaCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.CambioClaveUserCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAASAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\CambioClaveUserCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.CargarConciliacionCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\CargarConciliacionCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.CierreCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\CierreCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.GuardarConciliacionCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\GuardarConciliacionCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.GuardarDeudasCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\GuardarDeudasCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.RecuperarClaveCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\RecuperarClaveCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.StatusServiciosCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\StatusServiciosCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.StatusUserCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAASAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\StatusUserCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.UpdateAdminsCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\UpdateAdminsCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.UpdateConsumCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\UpdateConsumCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.UpdateFormatosCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\UpdateFormatosCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.UpdatePrestadoresCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\UpdatePrestadoresCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Commands.UpdateServiciosCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\UpdateServiciosCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Consumers.ConsumerBase" Collapsed="true">
+    <Position X="1.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAACIAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Consumers\ConsumerBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Consumers.ConsumerConciliacion" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAQAAAQAAAAAAAAA=</HashCode>
+      <FileName>Consumers\ConsumerConciliacion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Consumers.ConsumerDeuda" Collapsed="true">
+    <Position X="2.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAQAAAQAAAAAAAAA=</HashCode>
+      <FileName>Consumers\ConsumerDeuda.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Consumers.RabbitMqClientBase" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgACAAACAAAAAAACAAYAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Consumers\RabbitMqClientBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Exceptions.CustomException" Collapsed="true">
+    <Position X="14" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAIAAAAAAAAQA=</HashCode>
+      <FileName>Exceptions\CustomException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Exceptions.SQLException" Collapsed="true">
+    <Position X="26.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Exceptions\SQLException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Exceptions.ValidatorException" Collapsed="true">
+    <Position X="29.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAgAEAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\ValidatorException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.AgregarConsumidoresHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\AgregarConsumidoresHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.AgregarDeudaHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\AgregarDeudaHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.AgregarFormatoHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\AgregarFormatoHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.AgregarPagoHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\AgregarPagoHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.AgregarPrestadoresHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\AgregarPrestadorHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.AgregarServicioHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\AgregarServicioHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.CambiarDeudaHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\CambiarDeudaHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.CambioClaveUserHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\CambioClaveUserHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.CargarConciliacionHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\CargarConciliacionHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.CierreHadler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\CierreHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.GuardarConciliacionHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\GuardarConciliacionHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.GuardarDeudasHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\GuardarDeudasHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.RecuperarClaveHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\RecuperarClaveHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.StatusServiciosHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\StatusServiciosHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.StatusUserHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\StatusUserHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.UpdateAdminsHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\UpdateAdminsHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.UpdateConsumidoresHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\UpdateConsumidoresHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.UpdateFormatosHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\UpdateFormatosHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.UpdatePrestadoresHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\UpdatePrestadoresHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Commands.UpdateServiciosHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Commands\UpdateServiciosHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Queries.ConsultarAdminsQueryHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Queries\ConsultarAdminsQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Queries.ConsultarConsumidoresQueryHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Queries\ConsultarConsumidoresQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Queries.ConsultarDeudasQueryHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Queries\ConsultarDeudasQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Queries.ConsultarFormatosQueryHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Queries\ConsultarFormatosQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Queries.ConsultarPagosQueryHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Queries\ConsultarPagosQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Queries.ConsultarPrestadoresQueryHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Queries\ConsultarPrestadoresQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Queries.ConsultarServiciosQueryHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Queries\ConsultarServiciosQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Handlers.Queries.LoginUsuariosQueryHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAJAAAAAAAAAABAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\Queries\LoginUsuariosQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Mappers.AdminsMapper" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAEAQAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Mappers\AdminsMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Mappers.ConsumidoresMapper" Collapsed="true">
+    <Position X="26.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAIAAAAAAAAAAAAAEAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Mappers\ConsumidoresMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Mappers.DeudasMapper" Collapsed="true">
+    <Position X="17.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mappers\DeudasMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Mappers.FormatoMapper" Collapsed="true">
+    <Position X="22.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAEAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Mappers\FormatoMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Mappers.PagosMapper" Collapsed="true">
+    <Position X="15.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Mappers\PagosMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Mappers.PrestadoresMapper" Collapsed="true">
+    <Position X="21" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAEAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Mappers\PrestadoresMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Mappers.ServiciosMapper" Collapsed="true">
+    <Position X="19.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAIAAAAAAAAAAAAAEAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Mappers\ServiciosMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Queries.ConsultarAdminsQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Queries\ConsultarAdminsQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Queries.ConsultarConsumidorQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Queries\ConsultarConsumidorQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Queries.ConsultarDeudasQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Queries\ConsultarDeudasQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Queries.ConsultarFormatoQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Queries\ConsultarFormatoQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Queries.ConsultarPagoQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAACAAAAAAAACAAAACAAAAAAAAA=</HashCode>
+      <FileName>Queries\ConsultarPagoQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Queries.ConsultarPrestadorQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Queries\ConsultarPrestadorQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Queries.ConsultarServicioQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Queries\ConsultarServicioQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Queries.LoginUsuariosQuery" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Queries\LoginUsuariosQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.AdminsRequest" Collapsed="true">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEACAAgAACAIAAAAAAAQAAAAAAEAA=</HashCode>
+      <FileName>Requests\AdminsRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.CambioClaveUserRequest" Collapsed="true">
+    <Position X="19.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Requests\CambioClaveUserRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.CargarConciliacionRequest" Collapsed="true">
+    <Position X="24.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Requests\CargarConciliacionRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.CargarDeudaRequest" Collapsed="true">
+    <Position X="26.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Requests\CargarDeudaRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.ConsultarPagosRequest" Collapsed="true">
+    <Position X="14" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAACAAAAAAAAAAAAACgAAAAAAAA=</HashCode>
+      <FileName>Requests\ConsultarPagosRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.ConsumidorRequest" Collapsed="true">
+    <Position X="29.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAEASAAgAACAIAAAAAAAQAAAAAAEAA=</HashCode>
+      <FileName>Requests\ConsumidorRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.FormatosRequest" Collapsed="true">
+    <Position X="24.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAEAAAAAAAAABAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Requests\FormatosRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.GuardarConciliacionRequest" Collapsed="true">
+    <Position X="15.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACIAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Requests\GuardarConciliacionRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.GuardarDeudaRequest" Collapsed="true">
+    <Position X="17.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAQAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Requests\GuardarDeudaRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.PagoRequest" Collapsed="true">
+    <Position X="12.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Requests\PagoRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.PrestadorRequest" Collapsed="true">
+    <Position X="24.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAEASAAgAACAIAAAAAAAQAAAAAAEAA=</HashCode>
+      <FileName>Requests\PrestadorRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.ServicioRequest" Collapsed="true">
+    <Position X="17.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAgAAAAgAABAAAAAAAAAAEAAAAAAIA=</HashCode>
+      <FileName>Requests\ServicioRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.StatusServicioRequest" Collapsed="true">
+    <Position X="28" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Requests\StatusServicioRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Requests.StatusUserRequest" Collapsed="true">
+    <Position X="19.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Requests\StatusUserRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Responses.AdminsResponse" Collapsed="true">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAASAAgAACAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Responses\AdminsResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Responses.ConsumidoresResponse" Collapsed="true">
+    <Position X="28" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAASAAgAACAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Responses\ConsumidoresResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Responses.DeudaResponse" Collapsed="true">
+    <Position X="15.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAIAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Responses\DeudaResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Responses.FormatosResponse" Collapsed="true">
+    <Position X="26.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAEAAAAAAAAABAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Responses\FormatosResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Responses.LoginResponse" Collapsed="true">
+    <Position X="22.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Responses\LoginResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Responses.PagoResponse" Collapsed="true">
+    <Position X="14" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAABAEAAAAAAAAIAAAAAAAAAAgAAAAAAAI=</HashCode>
+      <FileName>Responses\PagoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Responses.PrestadoresResponse" Collapsed="true">
+    <Position X="22.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAASAAgAACAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Responses\PrestadoresResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Responses.RecuperarClaveResponse" Collapsed="true">
+    <Position X="12.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Responses\RecuperarClaveResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Responses.Response&lt;T&gt;" Collapsed="true">
+    <Position X="15.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAJAAIAAAIAAAAAA=</HashCode>
+      <FileName>Responses\Response.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Responses.ServiciosResponse" Collapsed="true">
+    <Position X="21" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAgAAAAgAABAAAAAAAAAAEAAAAAAIA=</HashCode>
+      <FileName>Responses\ServiciosResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.AgregarConsumidorValidator" Collapsed="true">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\AgregarConsumidorValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.AgregarPagoValidator" Collapsed="true">
+    <Position X="17.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\AgregarPagoValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.AgregarPrestadorValidator" Collapsed="true">
+    <Position X="22.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\AgregarPrestadorValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.CambiarClaveValidator" Collapsed="true">
+    <Position X="29.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\CambiarClaveValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.ConsultarPagosValidator" Collapsed="true">
+    <Position X="15.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAABAAAAAAABAAAAQA=</HashCode>
+      <FileName>Validators\ConsultarPagosValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.DeudaValidator" Collapsed="true">
+    <Position X="21" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\DeudaValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.FormatoValidator" Collapsed="true">
+    <Position X="29.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\FormatoValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.LoginValidator" Collapsed="true">
+    <Position X="29.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\LoginValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.ServicioValidator" Collapsed="true">
+    <Position X="24.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAAAAAABA=</HashCode>
+      <FileName>Validators\ServicioValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.StatusServicioValidator" Collapsed="true">
+    <Position X="14" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\StatusServicioValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.StatusUserValidator" Collapsed="true">
+    <Position X="21" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\StatusUserValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.UpdateAdminValidator" Collapsed="true">
+    <Position X="26.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\UpdateAdminValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.UpdateConsumValidator" Collapsed="true">
+    <Position X="12.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\UpdateConsumValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.UpdateFormatoValidator" Collapsed="true">
+    <Position X="17.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\UpdateFormatoValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.UpdatePrestadorValidator" Collapsed="true">
+    <Position X="22.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\UpdatePrestadorValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCABPagaloTodoMS.Application.Validators.UpdateServicioValidator" Collapsed="true">
+    <Position X="28" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Validators\UpdateServicioValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="UCABPagaloTodoMS.Application.BusinessValidation.Interfaces.ICambiarClaveUser" Collapsed="true">
+    <Position X="12.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\Interfaces\ICambiarClaveUser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UCABPagaloTodoMS.Application.BusinessValidation.Interfaces.IStatusUserValidator" Collapsed="true">
+    <Position X="14" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessValidation\Interfaces\IStatusUserValidator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

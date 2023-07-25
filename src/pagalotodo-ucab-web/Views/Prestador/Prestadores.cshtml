@@ -1,0 +1,348 @@
+﻿@using Microsoft.AspNetCore.Mvc.ViewFeatures;
+@model ModelPrestadores;
+
+@{
+    ViewData["Title"] = "Prestadores";
+    Layout = "_LayoutAdmin";
+}
+<head>
+    <link rel="stylesheet" href="~/css/pagos.css" asp-append-version="true" />
+    <script src="~/js/servicios.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Zilla+Slab:ital,wght@1,600&display=swap" rel="stylesheet">
+</head>
+<body class="menu_fondo"></body>
+<!-- Mensaje Fallido -->
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        // Abre un cuadro de diálogo emergente con el mensaje de error
+        alert('@TempData["ErrorMessage"]');
+    </script>
+}
+<!-- Mensaje Exitoso -->
+@if (TempData["MensajeExito"] != null)
+{
+    <div id="mensajeExito" class="alert alert-success">
+        @TempData["MensajeExito"]
+    </div>
+}
+    <div class="column has-text-centered">
+        <br><br>
+        <h2 id="title" class="subtitle is-2 has-text-centered has-text-weight-bold">Prestadores</h2>
+    </div>
+    <br>
+    <div class="container-fluid">
+        <div class="row shadow-lg p-3 mb-5">
+            <div class="col">
+                <table id="tablaPagos" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Username</th>
+                            <th class="text-center">Nombre y Apellido</th>
+                            <th class="text-center">Correo</th>
+                            <th class="text-center">Documento</th>
+                            <th class="text-center">Direccion</th>
+                            <th class="text-center">Estatus</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var prestador in Model.Prestadores)
+                        {
+                            <tr id="@prestador.Username">
+                                <td>
+                                    <a href="#" onclick="seleccionarPrestador(this)" data-nombre="@prestador.Username">@prestador.Username</a>
+                                </td>
+                                <td>@prestador.Nombre</td>
+                                <td>@prestador.DocIdentidad</td>
+                                <td>@prestador.Correo</td>
+                                <td>@prestador.Direccion</td>
+                                <td>@prestador.Estatus</td>
+                            <td class="acciones">
+                                    <button onclick="activarServicio(this)" class="btn btn-activar-desactivar">Activar/Desactivar</button>
+                                    <button type="button" class="btn btn-sm btn-primary" onclick="modificarPrestador(this)">Modificar</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--Modal para CRUD-->
+    <div id="modalPrestador" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="Registro" asp-controller="Prestador" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Nuevo prestador de servicio</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" asp-for="PrestadorRequest.Username" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Clave</label>
+                            <input class="form-control" asp-for="PrestadorRequest.Clave" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" asp-for="PrestadorRequest.Nombre"  required>
+                        </div>
+                        <div class="form-group">
+                            <label>Apellido</label>
+                            <textarea class="form-control" asp-for="PrestadorRequest.Apellido" required></textarea>
+                        </div>
+                       <div class="listaDocumento">
+                            <br>
+                            <div class="form-group">
+                                <label for="tipoDoc">Tipo de Documento</label>
+                                <br>
+                                <select id="tipoDoc" asp-for="PrestadorRequest.TipoVj">
+                                    <option value="v">V</option>
+                                    <option value="j">J</option>
+                                    <option value="g">G</option>
+                                    <option value="p">P</option>
+                                    <option value="e">E</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <br>
+                                <label>Documento de identificacion</label>
+                                <input class="form-control" asp-for="PrestadorRequest.DocIdentidad" required></input>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Correo</label>
+                            <input class="form-control" asp-for="PrestadorRequest.Correo" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Direccion</label>
+                            <input class="form-control" asp-for="PrestadorRequest.Direccion" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-info" value="Crear">
+                        <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cancelar">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalModificarPrestador" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="ModificarPrestador" asp-controller="Prestador" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modificar cuenta</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" id="inputUsername" class="form-control" asp-for="PrestadorRequest.Username" value="" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" id="inputNombre" class="form-control" asp-for="PrestadorRequest.Nombre" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Apellido</label>
+                            <input type="text" id="inputApellido" class="form-control" asp-for="PrestadorRequest.Apellido" value="" required>
+                        </div>
+                        <div class="listaDocumento">
+                            <br>
+                            <div class="form-group">
+                                <label for="tipoDoc">Tipo de Documento</label>
+                                <br>
+                                <select id="tipoDoc" asp-for="PrestadorRequest.TipoVj" value="">
+                                    <option value="v">V</option>
+                                    <option value="j">J</option>
+                                    <option value="p">P</option>
+                                    <option value="g">G</option>
+                                    <option value="e">E</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <br>
+                                <label>Documento de identificacion</label>
+                                <input id="inputIdentidad" class="form-control" asp-for="PrestadorRequest.DocIdentidad" value="" required>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Correo</label>
+                            <input type="email" id="inputCorreo" class="form-control" asp-for="PrestadorRequest.Correo" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Direccion</label>
+                            <input id="inputDireccion" class="form-control" asp-for="PrestadorRequest.Direccion" value="" required>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-info" value="Guardar">
+                        <input type="button" class="btn btn-default" onclick="cerrar()" data-dismiss="modal" value="Cancel" />
+                    </div>
+                    <input type="hidden" name="_method" value="PUT" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<div id="detalleUserModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="spanDetalleUsername" class='modal-title'></span>
+            </div>
+            <div class="modal-body">
+                <span class='atributosModalServicioParti'>Nombre:</span> <span id="spanDetalleNombre" class='atributosModalServicioPartiValor'></span>
+                <br>
+                <span class='atributosModalServicioParti'>Correo:</span><span id="spanDetalleCorreo" class='atributosModalServicioPartiValor'></span>
+                <br>
+                <span class='atributosModalServicioParti'>DocIdentidad:</span>  <span id="spanDetalleDocIdentidad" class='atributosModalServicioPartiValor'></span>
+                <br>
+                <span class='atributosModalServicioParti'>Direccion:</span>  <span id="spanDetalleDireccion" class='atributosModalServicioPartiValor'></span>
+                <br>
+                <span class='atributosModalServicioParti'>Estatus:</span>  <span id="spanDetalleEstatus" class='atributosModalServicioPartiValor'></span>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cerrar">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Estatus Modal HTML -->
+<div id="cambiarEstServicioModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-action="StatusPrestador" asp-controller="Prestador" method="post">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cambiar estatus del prestador</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="inputCambioEstatus" class="form-control" asp-for="Username" value="" readonly required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="estatus">Estatus</label>
+                        <select id="estatus" asp-for="Status">
+                            <option value="true">Activo</option>
+                            <option value="false">Inactivo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input id="btnEstatusServ" type="submit" class="btn btn-danger" value="Activar/Desactivar">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                </div>
+                <input type="hidden" name="_method" value="PATCH" />
+            </form>
+        </div>
+    </div>
+</div>
+
+    <div class="crearServ">
+        <a href="#modalPrestador" class="btn btn-warning botonAddServicio" data-toggle="modal"><span>Añadir prestador</span></a>
+    </div>
+    <script>
+        function seleccionarPrestador(elemento) {
+            // Obtener los valores de los campos de la fila seleccionada
+            var fila = elemento.parentNode.parentNode;
+            var username = fila.querySelector("td:nth-child(1)").textContent;
+            var nombre = fila.querySelector("td:nth-child(2)").textContent;
+            var docIdentidad = fila.querySelector("td:nth-child(4)").textContent;
+            var correo = fila.querySelector("td:nth-child(3)").textContent;
+            var direccion = fila.querySelector("td:nth-child(5)").textContent;
+            var estatus = fila.querySelector("td:nth-child(6)").textContent;
+
+
+            var spanUsername = document.querySelector("#spanDetalleUsername");
+            var spanNombre = document.querySelector("#spanDetalleNombre");
+            var spanCorreo = document.querySelector("#spanDetalleCorreo");
+            var spanDoc = document.querySelector("#spanDetalleDocIdentidad");
+            var spanDeireccion = document.querySelector("#spanDetalleDireccion");
+            var spanEstatus = document.querySelector("#spanDetalleEstatus");
+
+            spanUsername.innerHTML = username;
+            spanNombre.innerHTML = nombre;
+            spanCorreo.innerHTML = correo;
+            spanDoc.innerHTML = docIdentidad;
+            spanDeireccion.innerHTML = direccion;
+            spanEstatus.innerHTML = estatus;
+
+            // Mostrar los detalles del prestador seleccionado
+            $("#detalleUserModal").modal("show");
+        }
+
+        function modificarPrestador(elemento) {
+            // Obtener los valores de los campos de la fila seleccionada
+            var fila = elemento.parentNode.parentNode;
+            var username = fila.querySelector("a").getAttribute("data-nombre");
+            var nombre = fila.querySelector("td:nth-child(2)").textContent;
+            var docIdentidad = fila.querySelector("td:nth-child(3)").textContent.substring(2);
+            var correo = fila.querySelector("td:nth-child(4)").textContent;
+            var direccion = fila.querySelector("td:nth-child(5)").textContent;
+
+            var inputUsername = document.querySelector("#inputUsername");
+            var inputNombre = document.querySelector("#inputNombre");
+            var inputApellido = document.querySelector("#inputApellido");
+            var tipoDoc = document.querySelector("#tipoDoc");
+            var inputIdentidad = document.querySelector("#inputIdentidad");
+            var inputCorreo = document.querySelector("#inputCorreo");
+            var inputDireccion = document.querySelector("#inputDireccion");
+
+            inputUsername.value = username;
+            var nombreSeparado = nombre.split(" ");
+            inputNombre.value = nombreSeparado[0];
+            inputApellido.value = nombreSeparado[1];
+            inputIdentidad.value = docIdentidad;
+            inputCorreo.value = correo;
+            inputDireccion.value = direccion;
+
+            console.log(docIdentidad);
+
+            // Mostrar los detalles del prestador seleccionado
+            $("#modalModificarPrestador").modal("show");
+        }
+
+    function activarServicio(elemento) {
+        // Obtener los valores de los campos de la fila seleccionada
+        var fila = elemento.parentNode.parentNode;
+        var nombre = fila.querySelector("td:nth-child(1)").textContent.trim();
+
+        var inputNombre = document.querySelector("#inputCambioEstatus");
+
+        inputNombre.value = nombre;
+
+        // Mostrar los detalles del prestador seleccionado
+        $("#cambiarEstServicioModal").modal("show");
+    };
+
+         // Obtener el elemento del mensaje
+        var mensajeExito = document.getElementById("mensajeExito");
+
+        // Ocultar el mensaje después de 3 segundos
+        setTimeout(function () {
+            mensajeExito.style.display = "none";
+        }, 3000); // 3000 milisegundos = 3 segundos
+    </script>
+   

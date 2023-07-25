@@ -1,0 +1,278 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 2%;
+    padding-right: 3%;
+    padding-bottom: 22px;
+    background-color: rgb(43, 89, 195);
+}
+
+.logo {
+    position: relative;
+    width: 28vh;
+    height: auto;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 3px 12px;
+}
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        nav ul li a:hover {
+            background-color: rgb(97, 232, 225);
+            color: #fff;
+            border: 4px solid transparent;
+            padding: 3px 15px;
+            border-radius: 30px;
+            transition: .4s;
+        }
+
+.btn_close {
+    background-color: rgb(255, 167, 15);
+    color: white;
+    text-decoration: none;
+    border: 2px solid rgb(255, 167, 15);
+    font-weight: 400;
+    padding: 3px 3.5%;
+    border-radius: 30px;
+    transition: transform .4s;
+    white-space: nowrap;
+}
+
+    .btn_close:hover {
+        transform: scale(1.1);
+    }
+
+.content {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20vh;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(45, 93, 204, 0.842) !important;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.1);
+    z-index: 1;
+    border-radius: 20px;
+}
+
+    .dropdown-content a {
+        color: rgb(255, 255, 255);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-weight: 100;
+    }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#tablaServicios td,
+#tablaConsumidores td {
+    text-align: center;
+}
+
+.crearServ a{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 20vh;
+    display : inline;
+    margin-left:80%;
+}
+
+#alertaExito {
+    display: none;
+}
+
+.listaOp {
+    display: flex;
+    justify-content: center;
+}
+
+.form-group {
+    margin-right: 10px;
+}
+
+/*SERVICIOS*/
+
+#cambiarEstServicioModal .modal-body {
+    display: flex;
+    justify-content: center;
+}
+
+#detalleServicioModal .modal-content {
+    background-color: #ffffff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-header .modal-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 167, 15);
+}
+
+.atributosModalServicioParti {
+    color: rgb(43, 89, 195,1); /* Color de resaltado */
+    font-weight: bold; /* Estilo de texto en negrita */
+}
+
+.atributosModalServicioParti .atributosModalServicioPartiValor {
+    color: black; /* Color de resaltado */
+}
+
+.modal-header {
+    background-image: url(../images/ucab-fondo_oscuro.webp);
+    background-size: cover;
+}
+
+#formatoModal {
+    top: 40%; /* Ajusta la posición vertical según tu necesidad */
+    margin-top: 0; /* Ajusta el espaciado vertical según tu necesidad */
+}
+
+    #formatoModal .modal-footer button {
+        display: flex;
+        margin: 1px;
+        padding: 3px;
+        font-size: small;
+    }
+
+.atributos {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    width: auto;
+    height: 200px;
+}
+
+.tile {
+    margin: 10px 2px;
+}
+
+label{
+    color:black;
+}
+
+.checkbox-input {
+    box-shadow: none;
+}
+
+.checkbox-label {
+    margin-left: 4px;
+}
+
+.tile.locked {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+    .tile.locked input {
+        pointer-events: none;
+    }
+
+.acciones {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.acciones .btn-editar {
+    background-color: rgb(43, 89, 195, 1);
+    color: white;
+}
+
+.acciones .btn-activar-desactivar {
+    background-color: rgb(255, 167, 15);
+    color: white;
+}
+
+.column.has-text-centered {
+    display: inline-block;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.servicios-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.servicios-column {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 50px;
+}
+
+.servicios-table {
+    width: 100%;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 #tituloServicios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+th:nth-child(8),
+td:nth-child(8) {
+    width: 20px; 
+    font-size:2px;
+}

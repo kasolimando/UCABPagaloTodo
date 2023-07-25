@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Version>0.2.0</Version>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Repository\**" />
+    <Compile Remove="ServiceBus\**" />
+    <EmbeddedResource Remove="Repository\**" />
+    <EmbeddedResource Remove="ServiceBus\**" />
+    <None Remove="Repository\**" />
+    <None Remove="ServiceBus\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Database\Configuration\StarterConfiguration.cs" />
+    <Compile Remove="DependencyInjection.cs" />
+    <Compile Remove="Settings\AzureServiceBusSettings.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FirebaseAdmin" Version="2.3.0" />
+    <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.60.0" />
+    <PackageReference Include="Google.Cloud.Storage.V1" Version="4.5.0" />
+    <PackageReference Include="MailKit" Version="4.0.0" />
+    <PackageReference Include="MassTransit" Version="7.3.0" />
+    <PackageReference Include="MassTransit.Analyzers" Version="7.3.0" />
+    <PackageReference Include="MassTransit.Azure.ServiceBus.Core" Version="7.3.0" />
+    <PackageReference Include="MediatR" Version="10.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="MimeKit" Version="4.0.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
+    <PackageReference Include="RestSharp" Version="106.15.0" />
+    <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="106.15.0" />
+    <PackageReference Include="XAct.Core.PCL" Version="0.0.5013" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UCABPagaloTodoMS.Core\UCABPagaloTodoMS.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Database\Configuration\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+</Project>

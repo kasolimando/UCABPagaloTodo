@@ -1,0 +1,119 @@
+﻿@model UCABPagaloTodoWeb.Models.ModeloDeudaPresta;
+
+@{
+    ViewData["Title"] = "Mis Deudas";
+    Layout = "_LayoutPrestador";
+}
+<head>
+    <link rel="stylesheet" href="~/css/pagos.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Zilla+Slab:ital,wght@1,600&display=swap" rel="stylesheet">
+</head>
+<body class="menu_fondo"></body>
+<!-- Mensaje Fallido -->
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        // Abre un cuadro de diálogo emergente con el mensaje de error
+        alert('@TempData["ErrorMessage"]');
+    </script>
+}
+<!-- Mensaje Exitoso -->
+@if (TempData["MensajeExito"] != null)
+{
+    <div id="mensajeExito" class="alert alert-success">
+        @TempData["MensajeExito"]
+    </div>
+}
+    <div class="column has-text-centered">
+        <br><br>
+        <h2 id="title" class="subtitle is-2 has-text-centered has-text-weight-bold">Deudas</h2>
+    </div>
+    <br>
+    <div class="fechas">
+        <form asp-action="DeudaPrestador" asp-controller="Deudas" method="post">
+            <label id="textoFecha">Servicio</label>
+            <select id="selectServicio" asp-for="ServicioSeleccionado">
+                @foreach (var servicio in Model.Servicios)
+                {
+                    @if(servicio.TipoPago == "confirmacion" && servicio.Estatus == "activo")
+                    {
+                        <option value='@servicio.Nombre'>@servicio.Nombre</option>
+                    }
+                }
+            </select>
+        <div class="buscar">
+            <input type="submit" class="btn btn-info" value="Buscar">
+        </div>
+        </form>
+    </div>
+    <br>
+    <div class="container-fluid">
+        <div class="row shadow-lg p-3 mb-5">
+            <div class="col">
+                <table id="tablaDeudas" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Servicio</th>
+                            <th class="text-center">Consumidor</th>
+                            <th class="text-center">Monto ($)</th>
+                            <th class="text-center">Estatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Deudas != null)
+                        {
+                            @foreach (var deuda in Model.Deudas)
+                            {
+                                <tr>
+                                    <td>@deuda.Servicio</td>
+                                    <td>@deuda.Consumidor</td>
+                                    <td>@deuda.Monto</td>
+                                    <td>@deuda.Estatus</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="modalCargarDeuda" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="post" enctype="multipart/form-data" asp-action="AddDeuda" asp-controller="Deudas">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Cargar archivo de deudores</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="file" id="archivoInput" asp-for="file">
+                        </div>
+                        <div class="modal-footer">
+                            <input id="btnCargar" type="submit" class="btn btn-primary" value="Cargar">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="cargarArchivoConci">
+            <a href="#modalCargarDeuda" class="btn btn-info botonCargarConci" data-toggle="modal"><span>Cargar archivo de deudores</span></a>
+        </div>
+    </div>
+<script>
+    // Obtener el elemento del mensaje
+    var mensajeExito = document.getElementById("mensajeExito");
+
+    // Ocultar el mensaje después de 3 segundos
+    setTimeout(function () {
+        mensajeExito.style.display = "none";
+    }, 3000); // 3000 milisegundos = 3 segundos
+</script>
+    <script src="~/js/deudasPresta.js"></script>
+
